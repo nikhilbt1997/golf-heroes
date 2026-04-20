@@ -42,6 +42,7 @@ export default function DashboardPage() {
       <h1 style={{ fontFamily: 'Playfair Display, serif', fontSize: '1.8rem', fontWeight: 700, marginBottom: '0.5rem' }}>Dashboard</h1>
       <p style={{ color: 'rgba(240,237,230,0.4)', fontSize: '0.88rem', marginBottom: '2rem' }}>Welcome back, {profile?.full_name || 'Player'}</p>
 
+      {/* Subscription Banner */}
       {!isActive && (
         <div style={{ background: 'rgba(200,230,160,0.1)', border: '0.5px solid rgba(200,230,160,0.3)', borderRadius: '0.75rem', padding: '1rem 1.5rem', marginBottom: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <div>
@@ -54,6 +55,7 @@ export default function DashboardPage() {
         </div>
       )}
 
+      {/* Stats Grid */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
         {[
           { label: 'Subscription', value: profile?.subscription_status || 'inactive', accent: isActive },
@@ -68,6 +70,7 @@ export default function DashboardPage() {
         ))}
       </div>
 
+      {/* Recent Scores */}
       <div style={{ background: '#0f1510', border: '0.5px solid rgba(255,255,255,0.08)', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '1.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
           <h2 style={{ fontSize: '1rem', fontWeight: 500 }}>Recent scores</h2>
@@ -87,6 +90,7 @@ export default function DashboardPage() {
         )}
       </div>
 
+      {/* Charity */}
       <div style={{ background: '#0f1510', border: '0.5px solid rgba(255,255,255,0.08)', borderRadius: '0.75rem', padding: '1.5rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
           <h2 style={{ fontSize: '1rem', fontWeight: 500 }}>My charity</h2>
@@ -101,9 +105,7 @@ export default function DashboardPage() {
             </div>
           </div>
         ) : (
-          <p style={{ color: 'rgba(240,237,230,0.3)', fontSize: '0.85rem' }}>No charity selected yet.{' '}
-            <button onClick={() => router.push('/dashboard/charity')} style={{ background: 'none', border: 'none', color: '#c8e6a0', cursor: 'pointer', fontSize: '0.85rem' }}>Choose one →</button>
-          </p>
+          <p style={{ color: 'rgba(240,237,230,0.3)', fontSize: '0.85rem' }}>No charity selected yet. <button onClick={() => router.push('/dashboard/charity')} style={{ background: 'none', border: 'none', color: '#c8e6a0', cursor: 'pointer', fontSize: '0.85rem' }}>Choose one →</button></p>
         )}
       </div>
     </div>
